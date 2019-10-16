@@ -1,2 +1,27 @@
 <h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+<span class="badge badge-info">
+  <% @number_products = @products.count %>
+  There are <%= @number_products %> different products.
+</span>
+
+
+<span class="badge badge-info">
+
+<% @new_array = []
+@products.each do |x| 
+  if @new_array.include?(x.category_id) == false
+    @new_array.push(x.category_id)
+  end
+end
+
+  %>
+
+
+  <% @number_categories = @new_array.count %>
+
+  There are <%= @number_categories %> different categories.
+</span>
