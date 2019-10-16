@@ -1,8 +1,54 @@
 <section class="orders-show">
 
+<% require 'rubygems' %>
+<% require 'active_record' %>
   <header class="page-header">
     <h1>Order #<%= @order.id %></h1>
   </header>
+  <% @current_order = @order.line_items %>
+
+  <table class="table table-borderd">
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Total</th>
+    </tr>
+
+    <tbody>
+      <% @current_order = @order.line_items %>
+      <tr>
+      <% @current_order.each do |item| %>
+      <th>
+        <%= item.product.name %>
+        </br><%= image_tag item.product.image.tiny %>
+        </br><%= item.product.description %>
+      </th>
+
+      <th>
+        <%= item[:quantity].to_i %>
+      
+      </th>
+      <th>
+        <%= humanized_money_with_symbol item[:total_price_cents] / 100 %>
+      </th>
+      </tr>
+
+    <% end %>
+    <tr>
+        <th>Email:</th>
+        <th><%= @order.email %></th>
+
+    </tbody>
+
+
+    <tfoot>
+      <tr>
+        <th>Total: </th>
+        <th><%= humanized_money_with_symbol @order.total %></th>
+      </tr>
+    </tfoot>
+
+  </table>
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
