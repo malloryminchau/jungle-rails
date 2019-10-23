@@ -1,6 +1,6 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example. 
 
 
 ## Setup
@@ -25,3 +25,11 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
+
+## App Structure
+
+  * Home page can be accessed logged in or not
+  * If you are not logged in the option to login or register is displayed for the user
+  * if the user is logged in they shown "logged in as {user}" in the navigation bar at the top of the page, as well as a logout button
+  
